@@ -1,0 +1,307 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* My Code */
+
+/* Index */
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+}
+
+#title { 
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+    grid-area: title;
+}
+
+#title span {
+    font-size: 9.5vw;
+    font-family: Sans-Serif;
+}
+
+#blurb {
+    background-color: lightgray;
+    font-size: 2.5vw;
+    text-align: center;
+    grid-area: blurb;
+    justify-self: center;
+    align-self: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#index-wrapper a {
+    text-decoration: None;
+    color: transparent;
+    text-align: center;
+    width: 230px;
+    height: 85px;
+    line-height: 85px;
+    font-size: 32px;
+    justify-self: center;
+    align-self: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* #index-wrapper a:hover {
+    color:white;
+} */
+
+#resume-link{
+    grid-area: resume-link;
+    background-color: #FAEFD0;
+}
+
+
+#project-link{
+    background-color: #B9E3B1;
+    grid-area: project-link;
+}
+
+#contact-link{
+    background-color: #C2EDFF;
+    grid-area: contact-link;
+}
+
+#index-wrapper{
+    display: grid;
+    height: 100%;
+    grid-template-columns: 12.5% 25% auto 25% 12.5%;
+    grid-template-rows: 20vh 20vh 20vh 20vh auto;
+    grid-template-areas: 
+        " . . . . ."
+        ". title title title ."
+         ". blurb blurb blurb ."
+         ". resume-link project-link contact-link .";
+}
+
+@media screen and (max-width: 1400px) {
+    #index-wrapper a {
+        width: 200px;
+        height: 75px;
+        line-height: 75px;
+        font-size: 25px;
+    } 
+}
+
+@media screen and (max-width: 1100px) {
+    #index-wrapper a {
+        width: 170px;
+        height: 60px;
+        line-height: 60px;
+    } 
+}
+
+@media screen and (max-width: 900px) {
+    #blurb {
+        font-size: 25px;
+    }
+
+    #index-wrapper span {
+        font-size: 90px;
+    }
+
+    #index-wrapper a {
+        width: 160px;
+        height: 60px;
+        line-height: 60px;
+        font-size: 25px;
+    }
+
+    
+}
+
+@media screen and (max-width: 700px) {
+
+    #index-wrapper span {
+        font-size: 70px;
+    }
+
+    #index-wrapper{
+
+        grid-template-columns: 5% 5% auto 5% 5%;
+        grid-template-rows: 1vh 25vh 40vh 10vh 10vh 10vh auto;
+        grid-template-areas: 
+            " . . . . ."
+            ". title title title ."
+             ". blurb blurb blurb ."
+             ". . resume-link . ."
+             ". . project-link . ."
+             ". . contact-link . .";
+    }
+
+    #index-wrapper a {
+        width: 155px;
+        height: 55px;
+        line-height: 55px;
+        font-size: 25px;
+    }
+
+}
+
+
+@media screen and (max-width: 650px) {
+    #index-wrapper{
+        grid-template-columns: 5% 90% 5%;
+        grid-template-rows: 10vh 20vh 28vh 12vh 12vh 12vh auto;
+        grid-template-areas: 
+            ". . ."
+            ". title ."
+             ". blurb ."
+             ". resume-link ."
+             ". project-link ."
+             ". contact-link .";
+    }
+
+}
+
+@media screen and (max-width: 330px) {
+
+    #index-wrapper span {
+        font-size: 60px;
+    }
+
+    #blurb{
+        font-size: 20px;
+    }
+
+    #index-wrapper a {
+        font-size: 20px;
+    } 
+}
+
+/* Project */ 
+#header-wrapper {
+    display: flex;
+    align-items: center;
+    /* flex-direction: row; */
+    padding: 2%;
+    background-color: ghostwhite;
+}
+
+#header-wrapper a{
+    text-decoration: none;
+    color: blue;
+}
+
+#header-wrapper h1{
+    margin: auto;
+    font-size: 4vmax;
+}
+
+.project-wrapper {
+	display: flex;
+    /* overflow: hidden; */
+    /* justify-content: flex-start; */
+
+    width: 50%;
+    margin: auto;
+    /* padding: 2px; */
+    border: 3px solid #333;
+
+    box-shadow: 0px 0px 10px #EEE;
+
+	/* flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	align-content: stretch; */
+}
+
+.project-wrapper a {
+	order: 1;
+}
+
+.project-wrapper .display-image {
+    max-width: 100%;
+    height: auto;
+}
+
+.project-wrapper .project-text-wrapper {
+	order: 2;
+	
+	display: flex;
+    flex-direction: column;
+    padding-left: 2%;
+    background-color: white;
+
+    padding-top: 1%;
+    padding-bottom: 1%;
+    
+	/* overflow: hidden; */
+}
+
+#project-list li {
+    margin-top: 20px;
+}
+
+.project-wrapper .project-text-wrapper .project-title {
+    order: 1;
+    font-size: 2vmax;
+}
+
+.project-wrapper .project-text-wrapper .project-description {
+    order: 2;
+    flex-grow: 1;
+    margin-top: 1%;
+	/* border: none; 
+	margin: 0; 
+	padding: 0; */
+	/* width: 100%; */
+	/* height: 40px; */
+}
+
+.project-wrapper .project-text-wrapper .project-tags {
+    order: 3;
+    
+}

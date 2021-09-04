@@ -1,0 +1,23 @@
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCeoDG8EApceefk_FgOkTn4xDg498YEsFs",
+    authDomain: "hydroponics-5c336.firebaseapp.com",
+    databaseURL: "https://hydroponics-5c336.firebaseio.com",
+    projectId: "hydroponics-5c336",
+    storageBucket: "hydroponics-5c336.appspot.com",
+    messagingSenderId: "34094511378",
+    appId: "1:34094511378:web:71c8a9a75775077023efcb",
+    measurementId: "G-KH69WTVKVR"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>

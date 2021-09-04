@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Looks Familiar</title>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body style="overflow: auto; padding: 0; margin: 0;">
+    <template>
+        <div class="scroll-wrapper" style="display: table; width: 100%; background: #EEE; padding: 0; margin: 0;">
+            <p class='scroll-sentence' style="display: table-cell; vertical-align: middle; text-align: center; margin: 0; padding: 0; font-size: 48px; color: white;"></p>
+        </div>
+    </template>
+
+
+    <!-- <div id="test">Test</div> -->
+    <div id="wrapper" style="overflow: auto; padding: 0; margin: 0;">
+        <div id="content" style="padding: 0; margin: 0; font-family: Sans-Serif;"> </div>
+    </div>
+
+    
+
+
+</body>
+
+<script>
+            
+    
+
+    // let test = document.getElementById("test");
+    let sentences = ["Knock Knock!","Who's There", "Deja", "Deja who?"];
+    // let colours = ["#3726A6", "#4A4AF2", "#F2E635", "#F2BE22"];
+    // let colours = ["#F2BE22","#F2E635", "#F2BE22","#F2E635"];
+    // let colours = ["#0462C4", "#049CCF", "#0462C4", "#049CCF"];
+    let colours = ["#516578", "#7E9CB8","#516578", "#7E9CB8"];
+    let numSentences = sentences.length;
+    let divHeight = window.innerHeight - 100; // window.screen.height - 100; // document.body.clientHeight
+    let contentDiv = document.getElementById('content');
+
+
+    function addTemplate(index){
+        // checking that the template is viable with the site
+        if ('content' in document.createElement('template')) {
+            // finding template 
+            let temp = document.getElementsByTagName("template")[0];
+
+            let item = temp.content.querySelector("div");
+            item.style.height = divHeight + "px";
+
+            // creating new element for each item in projectArrray
+            let a = document.importNode(item, true);
+
+            // updating elements to be unique to each item
+            a.querySelector(".scroll-sentence").textContent = sentences[index];
+            a.querySelector(".scroll-sentence").style.backgroundColor = colours[index];
+            // adding child to list to be displayed
+            contentDiv.appendChild(a);
+
+        } else {
+            // Find another way to add the rows to the table because 
+            // the HTML template element is not supported.
+            console.log('template failed')
+        }
+
+    }
+
+    addTemplate(0);
+    addTemplate(1);
+
+     // cross browser addEvent, today you can safely use just addEventListener
+    function addEvent(obj,ev,fn) {
+        if(obj.addEventListener) obj.addEventListener(ev,fn,false);
+        else if(obj.attachEvent) obj.attachEvent("on"+ev,fn);    
+    }
+
+    // this is the scroll event handler
+    function scroller() {
+        // print relevant scroll info
+        let scrollPos = window.scrollY || window.scrollTop || document.getElementsByTagName("html")[0].scrollTop;
+
+        let offsetHeight = contentDiv.offsetHeight;
+
+        // console.log(test)
+        // test.innerHTML = "scrollPos: " + scrollPos + ", offsetHeight: " + offsetHeight;
+
+        if ((offsetHeight-(divHeight*2)-scrollPos) < 0) { // this is wrong, bu
+            console.log('adding new item');
+
+            let index = Math.floor(offsetHeight/divHeight)%numSentences
+            addTemplate(index);
+        }
+
+        
+
+    }
+
+    addEvent(document,"scroll",scroller);
+//   document.documentElement.scrollTop = 0;
+    
+    contentDiv.scrollTop = 0;
+    wrapperDiv = document.getElementById('wrapper');
+    wrapperDiv.scrollTop = 0;
+    window.scrollTo(0, 0);
+
+</script>
+
+</html>
